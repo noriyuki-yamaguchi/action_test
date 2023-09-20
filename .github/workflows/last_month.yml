@@ -1,4 +1,5 @@
-name: last_month
+name: LastMonth
+run-name: ${{ github.ref }} last_month
 on:
   #  schedule:
   #    - cron: "1 * * * *"
