@@ -19,7 +19,7 @@ jobs:
             retult=true
             echo "true"
           fi
-          echo "check_exec_job=$result" >> $GITHUB_OUTPUT
+          echo "check_exec_job=$result" >> "$GITHUB_OUTPUT"
 
   build:
     runs-on: ubuntu-latest
