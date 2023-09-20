@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: check_lastday_of_month
         run: |
-        today=$(/bin/date +%d)
-        tomorrow=$(/bin/date -d "tomorrow" +%d)
+        today=$(date +%d)
+        tomorrow=$(date -d "+1 day" +%d)
         if [ $tomorrow -eq 01 ]; then
           echo "Tomorrow is the 1st day of the month."
           # 翌日が1日の場合に実行したいコマンドを追加
