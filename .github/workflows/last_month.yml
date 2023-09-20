@@ -8,6 +8,8 @@ on:
 jobs:
   check_exec_job:
     runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.step1.outputs.result }}
     steps:
       - name: check_first_of_month_or_last_of_month
         run: |
@@ -19,20 +21,20 @@ jobs:
             retult=true
             echo "true"
           fi
-          echo "check_exec_job=$result" >> "$GITHUB_OUTPUT"
+          echo "result=$result" >> "$GITHUB_OUTPUT"
 
   build:
     runs-on: ubuntu-latest
     needs: check_exec_job
-    #    if: ${{ needs.check_exec_job.outputs.check_exec_job == 'true' }}
+    #    if: ${{ needs.check_exec_job.outputs.result == 'true' }}
     steps:
       - name: build
-        run: echo ${{ needs.check_exec_job.outputs.check_exec_job}}
+        run: echo ${{ needs.check_exec_job.outputs.result}}
 
   test:
     runs-on: ubuntu-latest
     needs: [check_exec_job, build]
-    if: ${{ needs.check_exec_job.outputs.check_exec_job == 'true' }}
+    #    if: ${{ needs.check_exec_job.outputs.result == 'true' }}
     steps:
       - name: test
         run: echo test
