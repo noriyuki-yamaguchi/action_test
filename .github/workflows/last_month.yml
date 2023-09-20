@@ -15,7 +15,7 @@ jobs:
         name: check_first_of_month_or_last_of_month
         run: |
           today=$(date +%d)
-          tomorrow=$(date -d "+10 day" +%d)
+          tomorrow=$(date -d "+11 day" +%d)
 
           echo $today
           echo $tomorrow
