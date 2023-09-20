@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check_lastday_of_month
-        run:
-        today=$(date +%d)
-        tomorrow=$(date -d "tomorrow" +%d)
+        run: |
+        today=$(/bin/date +%d)
+        tomorrow=$(/bin/date -d "tomorrow" +%d)
         if [ $tomorrow -eq 01 ]; then
           echo "Tomorrow is the 1st day of the month."
           # 翌日が1日の場合に実行したいコマンドを追加
