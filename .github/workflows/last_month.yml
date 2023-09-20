@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check_lastday_of_month
-        run: |
+        run:
         today=$(date +%d)
         tomorrow=$(date -d "tomorrow" +%d)
         if [ $tomorrow -eq 01 ]; then
