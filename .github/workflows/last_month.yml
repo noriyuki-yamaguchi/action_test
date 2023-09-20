@@ -22,6 +22,7 @@ jobs:
           if [ $today -eq 01 ] || [ $tomorrow -eq 01 ]; then
             retult=true
           fi
+          echo $result
           echo "result=$result" >> "$GITHUB_OUTPUT"
 
   build:
