@@ -1,0 +1,13 @@
+name: LastMonth
+run-name: ${{ github.ref }} last_month
+on:
+  #  schedule:
+  #    - cron: "1 * * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo test
