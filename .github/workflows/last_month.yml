@@ -2,27 +2,25 @@ name: LastMonth
 run-name: ${{ github.ref }} last_month
 on:
   #  schedule:
-  #    - cron: "1 * * * *"
+  #    - cron: '0 0 1,28-31 * *'
   workflow_dispatch:
 
 jobs:
   check_exec_job:
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/stage' }}
     outputs:
-      result: ${{ steps.step1.outputs.result }}
+      result: ${{ steps.check.outputs.result }}
     steps:
-      - id: step1
+      - id: check
         name: check_first_of_month_or_last_of_month
         run: |
           today=$(date +%d)
           tomorrow=$(date -d "+1 day" +%d)
 
-          echo $today
-          echo $tomorrow
           result=false
           if [ $today -eq 01 ] || [ $tomorrow -eq 01 ]; then
             retult=true
-            echo "true"
           fi
           echo "result=$result" >> "$GITHUB_OUTPUT"
 
