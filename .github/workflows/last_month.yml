@@ -1,0 +1,12 @@
+name: last_month
+on:
+  #  schedule:
+  #    - cron: "1 * * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        uses: echo test
