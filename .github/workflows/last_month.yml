@@ -27,12 +27,14 @@ jobs:
           fi
   build:
     runs-on: ubuntu-latest
+    needs: check_day
     steps:
       - name: build
         run: echo build
 
   test:
     runs-on: ubuntu-latest
+    needs: [check_day, build]
     steps:
       - name: test
         run: echo test
