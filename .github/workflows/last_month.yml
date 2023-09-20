@@ -17,6 +17,7 @@ jobs:
           result=false
           if [ $today -eq 01 ] || [ $tomorrow -eq 01 ]; then
             retult=true
+            echo "true"
           fi
           echo "check_exec_job=$result" >> $GITHUB_OUTPUT
 
