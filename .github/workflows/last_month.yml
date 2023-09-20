@@ -18,7 +18,7 @@ jobs:
           if [ $today -eq 01 ] || [ $tomorrow -eq 01 ]; then
             retult=true
           fi
-          echo "::set-output name=check_exec_job::$result"
+          echo "::save-state name=check_exec_job::$result"
 
   build:
     runs-on: ubuntu-latest
