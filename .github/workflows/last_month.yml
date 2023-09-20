@@ -11,7 +11,8 @@ jobs:
     outputs:
       result: ${{ steps.step1.outputs.result }}
     steps:
-      - name: check_first_of_month_or_last_of_month
+      - id: step1
+        name: check_first_of_month_or_last_of_month
         run: |
           today=$(date +%d)
           tomorrow=$(date -d "+10 day" +%d)
