@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check_lastday_of_month
-        run: today=$(date +%d)
+        run: |
+          today=$(date +%d)
           tomorrow=$(date -d "+1 day" +%d)
           if [ $tomorrow -eq 01 ]; then
             echo "Tomorrow is the 1st day of the month."
