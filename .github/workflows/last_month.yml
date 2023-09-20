@@ -8,6 +8,14 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    steps:
-      - name: test
-        run: echo test
+    steps: check_lastday_of_month
+      - name: |
+        today=$(date +%d)
+        tomorrow=$(date -d "tomorrow" +%d)
+        if [ $tomorrow -eq 01 ]; then
+          echo "Tomorrow is the 1st day of the month."
+          # 翌日が1日の場合に実行したいコマンドを追加
+        else
+          echo "Tomorrow is not the 1st day of the month."
+          # 翌日が1日でない場合の処理を追加
+        fi
