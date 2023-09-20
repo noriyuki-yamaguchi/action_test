@@ -6,17 +6,33 @@ on:
   workflow_dispatch:
 
 jobs:
-  check:
+  check_day:
     runs-on: ubuntu-latest
     steps:
-      - name: check_lastday_of_month
+      - name: check_first_of_month_or_last_of_month
         run: |
           today=$(date +%d)
           tomorrow=$(date -d "+1 day" +%d)
+
+          if [ $today -eq 01 ]; then
+            echo "Today is the 1st day of the month."
+          else
+            echo "Today is not the 1st day of the month."
+          fi
+
           if [ $tomorrow -eq 01 ]; then
             echo "Tomorrow is the 1st day of the month."
-            # 翌日が1日の場合に実行したいコマンドを追加
           else
             echo "Tomorrow is not the 1st day of the month."
-            # 翌日が1日でない場合の処理を追加
           fi
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: echo build
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo test
