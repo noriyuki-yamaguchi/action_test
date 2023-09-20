@@ -8,8 +8,9 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    steps: check_lastday_of_month
-      - name: |
+    steps:
+      - name: check_lastday_of_month
+        run: |
         today=$(date +%d)
         tomorrow=$(date -d "tomorrow" +%d)
         if [ $tomorrow -eq 01 ]; then
